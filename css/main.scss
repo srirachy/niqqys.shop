@@ -1,0 +1,249 @@
+// Include custom variables - default overrides here
+
+$primary: rgb(151, 115, 42);
+$primary-opacity-8: rgba(151, 115, 42, 0.8);
+$gray: #dcdcdc;
+$sale: rgba(174, 104, 115, 0.5);
+$border-radius: 1rem;
+
+$theme-colors: (
+  "primary": $primary,
+  "primary-opacity-8": $primary-opacity-8,
+  "gray": $gray,
+  "sale": $sale,
+);
+
+// Create your own map
+$custom-color: (
+  "icon-background": rgba(128, 5, 128, 0.2),
+);
+
+// Merge maps
+$theme-colors: map-merge($theme-colors, $custom-color);
+
+@import "./bootstrap/scss/bootstrap";
+// @import "../node_modules/bootstrap/scss/functions";
+
+// // 2. Include any default variable overrides here
+
+// // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+// @import "../node_modules/bootstrap/scss/variables";
+// @import "../node_modules/bootstrap/scss/variables-dark";
+
+// // 4. Include any default map overrides here
+
+// // 5. Include remainder of required parts
+// @import "../node_modules/bootstrap/scss/maps";
+// @import "../node_modules/bootstrap/scss/mixins";
+// @import "../node_modules/bootstrap/scss/root";
+
+// // 6. Optionally include any other parts as needed
+// @import "../node_modules/bootstrap/scss/utilities";
+// @import "../node_modules/bootstrap/scss/reboot";
+// @import "../node_modules/bootstrap/scss/type";
+// @import "../node_modules/bootstrap/scss/images";
+// @import "../node_modules/bootstrap/scss/containers";
+// @import "../node_modules/bootstrap/scss/grid";
+// @import "../node_modules/bootstrap/scss/helpers";
+
+// // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+// @import "../node_modules/bootstrap/scss/utilities/api";
+
+// Header
+.announcement-bar {
+  font-size: 0.8rem;
+  border-bottom: 1px solid var(--gray);
+
+  &__list {
+    padding: 0;
+    margin: 0 -10px;
+    list-style-type: none;
+    display: inline-flex;
+
+    li {
+      margin: 0 10px;
+      display: flex;
+      align-items: center;
+      .bi {
+        background-color: var(--icon-background);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
+}
+
+.site-header {
+  .aws-search-field {
+    font-size: 0.9rem;
+    padding-left: 1.4rem;
+    border-radius: 20px!important; 
+  }
+}
+
+// Main Menu
+.main-navigation {
+  font-weight: 600;
+
+  .current-menu-item {
+    background-color: #dfbebd;
+  }
+
+  a {
+    color: var(--white);
+    padding: 0.6rem 1.4rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover {
+      background-color: #deaf52;
+    }
+  }
+
+  .menu-toggle {
+    background-color: $primary;
+    color: $white;
+    border: none;
+  }
+
+  .sub-menu {
+    li {
+      background-color: $primary;
+    }
+  }
+}
+
+// Carousel
+
+.carousel {
+  .carousel-control-prev, .carousel-control-next {
+    width: 9%;
+  }
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+}
+
+.carousel .carousel-indicators button {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: none;
+  padding: 0!important; // priority cuz interference w/ style.css line 570
+}
+
+.carousel-indicators button {
+  background: rgba(255, 255, 255, 0.39);
+  margin: 0 0.5rem;
+}
+
+.carousel-indicators button.active {
+  background: #dfbebd;
+}
+
+// Categories
+.categories {
+  background: $gray;
+  &__col {
+    margin: 15px 50px;
+    display: block;
+    h2 {
+      line-height: 1.8!important;
+    }  
+  }
+  &__col__long {
+    margin: 15px 50px;
+    position: relative;
+    h2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+  .category__img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+  .category__img__long{
+    width: 700px;
+    height: 357px;
+    object-fit: cover;
+  }
+  .category__link {
+    display: inline-block;
+    margin-bottom: -10px;
+    text-decoration: none!important;
+  }
+  .category__sale {
+    position: absolute;
+    width: 700px;
+    height: 357px;
+  }
+}
+
+// Footer
+.site-footer {
+  .menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+    display: block;
+    padding: 0.3rem 0;
+    &:hover {
+      color: #dfbebd;
+    }
+  }
+
+  img {
+    height: 75px;
+    margin-left: auto;
+  }
+}
+
+// .row-footer {
+//   margin: 0 auto;
+// }
+.row-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-copyright {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.row-copyright {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-copyright {
+  a {
+    color: $black;
+    display: inline;
+    &:hover{
+      color: $primary;
+    }
+  }
+}
+
