@@ -79,6 +79,7 @@
 						WC()->cart->get_cart_contents_count() ); ?> - <?php echo WC()->cart->get_cart_total(); ?>
 					</a>
 				</div>
+				<!-- end cart section -->
 			</div>
 		</div>
 
